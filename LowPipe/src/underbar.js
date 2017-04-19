@@ -101,6 +101,18 @@
 
   // Produce a duplicate-free version of the array.
   _.uniq = function(array) {
+    var newArray = [];
+    for(var i = 0; i < array.length; i++){
+      newArray.push(array[i])
+    }
+    for(var i = 0; i < newArray.length; i++){      
+      for(var j = 0; j <newArray.length; j++){
+        if(i !== j && newArray[i] === newArray[j]){
+          newArray.splice(j, 1);
+        }
+      }
+    }
+    return newArray
   };
 
 
