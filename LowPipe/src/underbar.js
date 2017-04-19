@@ -80,16 +80,23 @@
     var array = [];
     _.each(collection, function(value, key, coll){
       if(test(value)){
-        array.push(value)
-      }
+        array.push(value);
+      };
     });
-    return array
+    return array;
   };
 
   // Return all elements of an array that don't pass a truth test.
   _.reject = function(collection, test) {
     // TIP: see if you can re-use _.filter() here, without simply
     // copying code in and modifying it
+    var array = [];
+    _.each(collection, function(value, key, coll){
+      if(!test(value)){
+        array.push(value);
+      };
+    });
+    return array
   };
 
   // Produce a duplicate-free version of the array.
