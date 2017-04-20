@@ -177,7 +177,6 @@
         }
       }
     })
-    console.log(accumulator)
     return accumulator;
   };
 
@@ -197,6 +196,23 @@
   // Determine whether all of the elements match a truth test.
   _.every = function(collection, iterator) {
     // TIP: Try re-using reduce() here.
+    var theTruth = true
+    if(collection.length === 0){
+      return true;
+    }
+    _.each(collection, function(value, key, col){
+      if(!iterator){
+        _.each(collection, function(value2, key2, col2){
+          if(!value){
+            theTruth = false;
+          }
+        })
+      } else if(!iterator(value)){
+        theTruth = false;
+        console.log(theTruth)
+      }
+    })
+    return theTruth;
   };
 
   // Determine whether any of the elements pass a truth test. If no iterator is
